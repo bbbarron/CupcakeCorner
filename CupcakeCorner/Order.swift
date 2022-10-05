@@ -35,12 +35,14 @@ class Order: ObservableObject, Codable {
     @Published var zip = ""
 
     var hasValidAddress: Bool {
-        if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
-            return false
-        }
+        // Following added as a challenge to prevent blank lines
+        if name.isReallyEmpty || streetAddress.isReallyEmpty || city.isReallyEmpty || zip.isReallyEmpty {
+                return false
+            }
 
-        return true
-    }
+            return true
+        }
+    
 
     var cost: Double {
         // $2 per cake
